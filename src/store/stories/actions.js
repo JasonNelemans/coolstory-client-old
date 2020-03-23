@@ -11,6 +11,8 @@ export function fetchStoriesSucces(data) {
 export function fetchStories(id) {
   return async (dispatch, getState) => {
     const state = getState();
+    
+    if(state.stories.length != 0) return;
 
     const response = await axios.get(`${apiUrl}/homepage/stories/${id}`);
 

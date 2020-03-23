@@ -39,7 +39,7 @@ function App() {
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route path="/homepages/stories/:id" component={HomepageDetails} />
+        <Route path="/homepages/:id" component={HomepageDetails} />
       </Switch>
     </div>
   );
