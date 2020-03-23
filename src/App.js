@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
+import HomepageDetails from "./pages/HomepageDetails";
 
 const Other = () => (
   <Jumbotron>
@@ -38,6 +39,7 @@ function App() {
         <Route path="/other" component={Other} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
+        <Route path="/homepages/stories/:id" component={HomepageDetails} />
       </Switch>
     </div>
   );
