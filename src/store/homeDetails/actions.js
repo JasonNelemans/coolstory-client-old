@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { apiUrl } from "../../config/constants";
 
-export function HomepageIdSucces(data) {
+export function homepageIdSucces(data) {
   return {
     type: 'HOMEPAGE_BY_ID',
     payload: data
@@ -16,6 +16,6 @@ export function fetchHomepagesById(id) {
     console.log('resonse.data: ', ...response.data)
     
 
-    dispatch({type: 'HOMEPAGE_BY_ID', payload: response.data})
+    dispatch(homepageIdSucces(response.data))
   }
 }

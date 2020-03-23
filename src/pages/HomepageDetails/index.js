@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchStories } from '../../store/stories/actions';
 import { selectStories } from '../../store/stories/selectors';
 import Story from '../../components/Story';
-import { selectHomepages } from '../../store/home/selector';
 import {fetchHomepagesById} from '../../store/homeDetails/actions';
+import { selectHomeDetails } from '../../store/homeDetails/selectors';
+
 
 export default function HomepageDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const stories = useSelector(selectStories);
-  const homepages = useSelector(selectHomepages);
-
+  const homepage = useSelector(selectHomeDetails)
   console.log('stories: ', stories)
-  console.log('homepages: ', homepages)
+  console.log('homepage: ', homepage)
   
   useEffect(() => {
     dispatch(fetchHomepagesById(id))

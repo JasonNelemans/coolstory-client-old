@@ -1,0 +1,1 @@
+export const selectHomeDetails = state => state.homeDetails
