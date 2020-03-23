@@ -10,12 +10,8 @@ export function homepageIdSucces(data) {
 
 export function fetchHomepagesById(id) {
   return async (dispatch, getState) => {
-    const state = getState();
-
     const response = await axios.get(`${apiUrl}/homepage/${id}`);
     console.log('resonse.data: ', ...response.data)
-    
-
     dispatch(homepageIdSucces(response.data))
   }
 }
