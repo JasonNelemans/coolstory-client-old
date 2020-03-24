@@ -1,5 +1,11 @@
 import axios from 'axios';
 import { apiUrl } from "../../config/constants";
+import {
+  appLoading,
+  appDoneLoading,
+  showMessageWithTimeout,
+  setMessage
+} from "../appState/actions";
 
 export function fetchStoriesSucces(data) {
   return {
@@ -21,8 +27,19 @@ export function fetchStories(id) {
   }
 }
 
-export function postStory(name, content, url) {
+export function postStory(name, content, imageUrl) {
   return async (dispatch, getState) => {
-    console.log('I am working!')
+    // dispatch(appLoading())
+    try {
+      const response = await axios.post(`${apiUrl}/homepage/stories`, {
+        name,
+        content,
+        imageUrl
+      });
+      console.log('response inside postStory thunk: ', response);
+    }
+    catch (error) {
+      console.log('error: ', error)
+    }
   }
 }
