@@ -11,11 +11,18 @@ export default function StoryForm() {
   const [name, setName] = useState('');
   const [content, setContent] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [displayImage, setDisplayImage] = useState('none')
+  const [preview, setPreview] = useState('')
 
   const submitForm = (event) => {
     event.preventDefault();
     console.log('Submitted!')
     console.log('the Details: ', name, content, imageUrl);
+  }
+  
+  const pictureHandler = () => {
+    displayImage === 'none' ? setDisplayImage(true) : setDisplayImage('none')
+    setPreview(imageUrl)
   }
 
   return (
@@ -53,6 +60,9 @@ export default function StoryForm() {
               placeholder="Image url goes here"
               required
             />
+            <div style={{display: displayImage}}> 
+              <img src={preview} alt='' />
+            </div>
             <Button variant="primary" onClick={pictureHandler}>
               Preview the picture
             </Button>
