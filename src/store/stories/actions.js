@@ -20,3 +20,9 @@ export function fetchStories(id) {
 
   }
 }
+
+export function postStory(name, content, url) {
+  return async (dispatch, getState) => {
+    console.log('I am working!')
+  }
+}

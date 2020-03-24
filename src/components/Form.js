@@ -3,9 +3,10 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 // import { selectToken } from "../../store/user/selectors";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import { postStory } from '../store/stories/actions';
 
 export default function StoryForm() {
   const [name, setName] = useState('');
@@ -13,11 +14,11 @@ export default function StoryForm() {
   const [imageUrl, setImageUrl] = useState('');
   const [displayImage, setDisplayImage] = useState('none')
   const [preview, setPreview] = useState('')
+  const dispatch = useDispatch();
 
   const submitForm = (event) => {
     event.preventDefault();
-    console.log('Submitted!')
-    console.log('the Details: ', name, content, imageUrl);
+    dispatch(postStory(name, content, imageUrl));
   }
   
   const pictureHandler = () => {
@@ -60,9 +61,7 @@ export default function StoryForm() {
               placeholder="Image url goes here"
               required
             />
-            <div style={{display: displayImage}}> 
-              <img src={preview} alt='' />
-            </div>
+            <img src={preview} alt='' style={{display: displayImage}}/>
             <Button variant="primary" onClick={pictureHandler}>
               Preview the picture
             </Button>
