@@ -13,6 +13,10 @@ export default function Navigation() {
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
+  const myPageControls = token 
+  ? <NavbarItem path="/mypage" linkText="My page" /> 
+  : <NavbarItem path="/signup" linkText="Sign up" />
+
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
@@ -22,7 +26,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path="/other" linkText="Other" />
+          {myPageControls}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
