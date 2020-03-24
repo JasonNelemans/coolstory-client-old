@@ -2,58 +2,67 @@ import React, {useEffect, useState} from 'react';
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { selectToken } from "../../store/user/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+// import { selectToken } from "../../store/user/selectors";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
-export default function Form() {
+export default function StoryForm() {
+  const [name, setName] = useState('');
+  const [content, setContent] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    console.log('Submitted!')
+    console.log('the Details: ', name, content, imageUrl);
+  }
+
   return (
     <div className='form'>
        <Container>
-      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">Signup</h1>
-        <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            value={name}
-            onChange={event => setName(event.target.value)}
-            type="text"
-            placeholder="Enter name"
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-            type="email"
-            placeholder="Enter email"
-            required
-          />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+        <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+          <h2 className="mt-5 mb-5"><strong>Post a <em>cool</em> story bro</strong></h2>
+          <Form.Group controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              value={name}
+              onChange={event => setName(event.target.value)}
+              type="input"
+              placeholder="Enter a name for your story"
+              required
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicContent">
+            <Form.Label>Content</Form.Label>
+            <Form.Control
+              value={content}
+              onChange={event => setContent(event.target.value)}
+              type="text"
+              placeholder="Tell us what happened"
+              required
+            />
+          </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-            type="password"
-            placeholder="Password"
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
-            Sign up
-          </Button>
-        </Form.Group>
-        <Link to="/login">Click here to log in</Link>
-      </Form>
+          <Form.Group controlId="formBasicUrl">
+            <Form.Label>Image url</Form.Label>
+            <Form.Control
+              value={imageUrl}
+              onChange={event => setImageUrl(event.target.value)}
+              type="input"
+              placeholder="Image url goes here"
+              required
+            />
+            <Button variant="primary" onClick={pictureHandler}>
+              Preview the picture
+            </Button>
+          </Form.Group>
+          <Form.Group className="mt-5">
+            <Button variant="primary" type="submit" onClick={submitForm}>
+              Post it bruu!
+            </Button>
+          </Form.Group>
+        </Form>
     </Container>
     </div>
   )

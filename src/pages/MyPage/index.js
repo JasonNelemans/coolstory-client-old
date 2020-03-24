@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectUserHomepage, selectUserStories } from '../../store/user/selectors';
 import Story from '../../components/Story';
 import Button from 'react-bootstrap/Button';
+import Form from '../../components/Form';
 
 export default function MyPage() {
   const homepage = useSelector(selectUserHomepage);
@@ -19,7 +20,7 @@ export default function MyPage() {
 
   const form = (
     <div style={{display: display}}>
-      <h1>Hello</h1>
+      <Form />
     </div>
   )
 
