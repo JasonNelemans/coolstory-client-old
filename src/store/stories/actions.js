@@ -2,6 +2,8 @@ import axios from 'axios';
 import { apiUrl } from "../../config/constants";
 import { selectToken } from '../user/selectors';
 import { selectHomepageId } from '../homeDetails/selectors';
+import { showMessageWithTimeout } from '../appState/actions';
+
 // import {
 //   appLoading,
 //   appDoneLoading,
@@ -34,7 +36,7 @@ export function postStory(name, content, imageUrl) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     const id = selectHomepageId(getState());
-    console.log('homepage id in postStory thunk: ', id);
+
     try {
       const response = await axios.post(`${apiUrl}/homepage/stories`, {
         name,
@@ -47,8 +49,9 @@ export function postStory(name, content, imageUrl) {
           Authorization: `Bearer ${token}`
         }
       });
-      console.log('response inside postStory thunk: ', response);
+
       dispatch(postStorySucces(response.data));
+      dispatch(showMessageWithTimeout("success", true, "Cool story posted bro"));
     }
     catch (error) {
       console.log('error: ', error)
