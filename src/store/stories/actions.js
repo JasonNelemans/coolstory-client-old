@@ -4,13 +4,6 @@ import { selectToken } from '../user/selectors';
 import { selectHomepageId } from '../homeDetails/selectors';
 import { showMessageWithTimeout } from '../appState/actions';
 
-// import {
-//   appLoading,
-//   appDoneLoading,
-//   showMessageWithTimeout,
-//   setMessage
-// } from "../appState/actions";
-
 export function fetchStoriesSucces(data) {
   return {
     type: 'FETCH_STORIES_SUCCES',
