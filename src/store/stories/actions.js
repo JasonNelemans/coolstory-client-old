@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { apiUrl } from "../../config/constants";
-import {
-  appLoading,
-  appDoneLoading,
-  showMessageWithTimeout,
-  setMessage
-} from "../appState/actions";
+// import {
+//   appLoading,
+//   appDoneLoading,
+//   showMessageWithTimeout,
+//   setMessage
+// } from "../appState/actions";
 
 export function fetchStoriesSucces(data) {
   return {
@@ -14,16 +14,10 @@ export function fetchStoriesSucces(data) {
   }
 }
 
-export function fetchStories(id) {
+export function fetchStoriesById(id) {
   return async (dispatch, getState) => {
-    const state = getState();
-    
-    if(state.stories.length != 0) return;
-
     const response = await axios.get(`${apiUrl}/homepage/stories/${id}`);
-
     dispatch(fetchStoriesSucces(response.data))
-
   }
 }
 

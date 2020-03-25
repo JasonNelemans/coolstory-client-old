@@ -11,24 +11,29 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(fetchHomepages());
-  }, []);
+  }, [dispatch]);
 
-  console.log('homepages: ', homepages)
   return (
     <div>
       <Jumbotron >
         <h1>THIS IS THE HOMEPAGE!</h1>
       </Jumbotron>
-      {homepages.map((homepage) => {
-        return (
-          <Homepage 
-            title={homepage.title}
-            description={homepage.description}
-            id={homepage.userId}
-            key={homepage.id}
-          />
-        )
-      })}
+      <div style={{
+        border: '3px solid black', 
+        margin: '10px',
+        textAlign: 'center'
+      }}>
+        {homepages.map((homepage) => {
+          return (
+            <Homepage 
+              title={homepage.title}
+              description={homepage.description}
+              id={homepage.userId}
+              key={homepage.id}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }
