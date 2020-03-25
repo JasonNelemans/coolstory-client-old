@@ -28,6 +28,7 @@ export default function HomepageDetails() {
             title={homepage.title}
             description={homepage.description}
             key={homepage.id}
+            stories={homepage.stories}
           />
         )
       })}
