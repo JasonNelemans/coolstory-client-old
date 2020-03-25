@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { apiUrl } from "../../config/constants";
+import { selectToken } from '../user/selectors';
 
 export function homepageIdSucces(data) {
   return {
@@ -15,15 +16,30 @@ export function fetchHomepagesById(id) {
   }
 }
 
+export function updateHomepageSucces(data) {
+  return {
+    type: 'UPDATE_SUCCES',
+    payload: data
+  }
+}
+
 export function updateHomepage(title, description, color, backgroundColor, id) {
   return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    
     const response = await axios.patch(`${apiUrl}/homepage/${id}`, {
-      title,
-      description,
-      color, 
-      backgroundColor, 
-      id
-    });
-    console.log('response inside thunk: ', response)
+        title,
+        description,
+        color, 
+        backgroundColor, 
+        id
+      }, 
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+    dispatch(updateHomepageSucces(...response.data))
   }
 }
