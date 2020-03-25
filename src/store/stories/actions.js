@@ -23,6 +23,13 @@ export function fetchStoriesById(id) {
   }
 }
 
+export function postStorySucces(data) {
+  return {
+    type: 'POST_STORY_SUCCES',
+    payload: data
+  }
+}
+
 export function postStory(name, content, imageUrl) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
@@ -41,6 +48,7 @@ export function postStory(name, content, imageUrl) {
         }
       });
       console.log('response inside postStory thunk: ', response);
+      dispatch(postStorySucces(response.data));
     }
     catch (error) {
       console.log('error: ', error)
