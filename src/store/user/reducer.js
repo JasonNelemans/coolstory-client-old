@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
       return { ...state, ...action.payload };
     
     case 'POST_STORY_SUCCES':
-      return { ...state, stories: [...state.stories, action.payload]}
+      return { ...state, stories: [action.payload, ...state.stories]}
 
     default:
       return state;
