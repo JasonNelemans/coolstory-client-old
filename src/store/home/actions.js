@@ -13,7 +13,7 @@ export function fetchHomepages() {
     const state = getState();
     const response = await axios.get(`${apiUrl}/homepage`);
 
-    if(state.home.length != 0) return;
+    if(state.home.length !== 0) return;
 
     const data = response.data
     dispatch(fetchHomepagesSucces(data));

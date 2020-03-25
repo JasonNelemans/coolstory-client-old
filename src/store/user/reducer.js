@@ -20,6 +20,9 @@ export default (state = initialState, action) => {
 
     case TOKEN_STILL_VALID:
       return { ...state, ...action.payload };
+    
+    case 'POST_STORY_SUCCES':
+      return { ...state, stories: [...state.stories, action.payload]}
 
     default:
       return state;

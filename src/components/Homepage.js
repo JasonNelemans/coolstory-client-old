@@ -1,7 +1,4 @@
 import React from 'react';
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import {Link} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
 
 export default function Homepage(props) {
@@ -12,10 +9,17 @@ export default function Homepage(props) {
   : ''
 
   return (
-    <div style={{backgroundColor: background, color: text}}>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      {link}
+    <div style={{
+        backgroundColor: background, 
+        color: text,
+        border: '3px solid black', 
+        margin: '10px',
+        padding: '15px',
+        textAlign: 'center'
+      }}>
+        <h3>{props.title}</h3>
+        <p>{props.description}</p>
+        {link}
     </div>
   )
 }

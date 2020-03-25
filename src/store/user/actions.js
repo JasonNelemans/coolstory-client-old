@@ -60,8 +60,7 @@ export const login = (email, password) => {
         email,
         password
       });
-      console.log('response in login: ', response)
-      console.log('response.data login endpoint: ', response.data)
+      
       dispatch(loginSuccess(response.data));
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
@@ -93,7 +92,6 @@ export const getUserWithStoredToken = () => {
       const response = await axios.get(`${apiUrl}/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      console.log('response within getUserWithStoredToken: ', response.data)
       // token is still valid
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
