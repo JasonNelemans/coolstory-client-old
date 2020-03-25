@@ -14,3 +14,10 @@ export function fetchHomepagesById(id) {
     dispatch(homepageIdSucces(response.data))
   }
 }
+
+export function updateHomepage(id) {
+  return async (dispatch, getState) => {
+    // const response = await axios.patch(`${apiUrl}/homepage/${id}`);
+    console.log('hello from thunk')
+  }
+}
