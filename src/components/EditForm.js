@@ -17,13 +17,15 @@ export default function EditForm(){
   const [backgroundColor, setBackgroundColor] = useState(homepage.backgroundColor);
   
   useEffect(() => {
+    setTitle(homepage.title);
+    setDescription(homepage.description);
     setColor(homepage.color);
-    setBackgroundColor(homepage.backgroundColor)
+    setBackgroundColor(homepage.backgroundColor);
   }, [homepage.color])
  
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(updateHomepage());
+    dispatch(updateHomepage(title, description, color, backgroundColor, homepage.id));
   }
 
   return (

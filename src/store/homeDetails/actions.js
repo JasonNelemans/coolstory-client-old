@@ -15,10 +15,14 @@ export function fetchHomepagesById(id) {
   }
 }
 
-export function updateHomepage(id) {
+export function updateHomepage(title, description, color, backgroundColor, id) {
   return async (dispatch, getState) => {
     const response = await axios.patch(`${apiUrl}/homepage/${id}`, {
-      hello: 'just giving hello.'
+      title,
+      description,
+      color, 
+      backgroundColor, 
+      id
     });
     console.log('response inside thunk: ', response)
   }
