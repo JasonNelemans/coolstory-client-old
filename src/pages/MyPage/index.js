@@ -4,18 +4,24 @@ import { selectUserHomepage, selectUserStories } from '../../store/user/selector
 import Story from '../../components/Story';
 import Button from 'react-bootstrap/Button';
 import Form from '../../components/Form';
+import EditForm from '../../components/EditForm';
 
 export default function MyPage() {
   const homepage = useSelector(selectUserHomepage);
   const stories = useSelector(selectUserStories);
-  const [display, setDisplay] = useState('none')
+  const [display, setDisplay] = useState('none');
+  const [editDisplay, setEditDisplay] = useState('none');
 
   if(!homepage || !stories) {
     return <h1>Loading...</h1>
   }
   
   const clickHandler = () => {
-    display === 'none' ? setDisplay(true) : setDisplay('none')
+    display === 'none' ? setDisplay(true) : setDisplay('none');
+  }
+
+  const editClickHandler = () => {
+    editDisplay === 'none' ? setEditDisplay(true) : setEditDisplay('none');
   }
 
   const form = (
@@ -24,10 +30,18 @@ export default function MyPage() {
     </div>
   )
 
+  const editForm = (
+    <div style={{display: editDisplay}}>
+      <EditForm />
+    </div>
+  )
+
   return (
     <div className='myPage'>
       {form}
+      {editForm}
       <Button onClick={clickHandler}>Post a cool story bro</Button>
+      <Button onClick={editClickHandler}>Edit my page</Button>
       <div className='myHomepage' 
         style={{
           backgroundColor: homepage.backgroundColor, 
