@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { apiUrl } from "../../config/constants";
 import { selectToken } from '../user/selectors';
+import { showMessageWithTimeout } from '../appState/actions';
 
 export function homepageIdSucces(data) {
   return {
@@ -41,5 +42,6 @@ export function updateHomepage(title, description, color, backgroundColor, id) {
       }
     );
     dispatch(updateHomepageSucces(...response.data))
+    dispatch(showMessageWithTimeout("success", true, "Updated the profile bro"));
   }
 }
