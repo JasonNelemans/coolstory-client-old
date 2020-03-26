@@ -10,7 +10,7 @@
 | 5 Posting stories            | 9          | 9/9                  | 0/9      |
 | 6 Editing your homepage      | 10         | 10/10                 | 0/10     |
 | 7 Finishing up               | 6          | 6/6                  | 0/6      |
-| Total                        | 60         | 59/60                 | 0/60     |
+| Total                        | 60         | 60/60                 | 0/60     |
 
 self reflection:
 
@@ -18,3 +18,5 @@ As soon as I moved past the first hurdle, I felt I moved at a much faster and de
 I appreciate I took the time to workout the method of approach first before each new functionality and then implement it. It gave me a clear and stress free head. I feel much more confident now for the real assessment coming up. Tomorrow I will incorporate new features and see If I can debug some small things. After that I want to rebuild the app from scratch to better understand what is going on. Also take a look at Rein’s code to see how he did it. 
 Sounds like a good plan. 
 So overall, very satisfied with myself and confident for the future. 
+
+I came back and updated all kinds of errors and bugs and gave myself the 60 points deserved. 
