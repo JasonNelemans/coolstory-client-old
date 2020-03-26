@@ -30,6 +30,8 @@ export default function Home() {
               description={homepage.description}
               id={homepage.userId}
               key={homepage.id}
+              backgroundColor={homepage.backgroundColor}
+              color={homepage.color}
             />
           )
         })}
