@@ -1,20 +1,17 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Story from './Story';
 
 export default function Homepage(props) {
-  const background = props.backgroundColor;
-  const text = props.color;
+  const {backgroundColor, color} = props;
   const link = props.id 
   ? <NavLink to={`/homepages/${props.id}`} exact={true}><button>Visit page</button></NavLink>
   : ''
-  
 
   return (
     <div>
       <div style={{
-          backgroundColor: background, 
-          color: text,
+          backgroundColor: backgroundColor, 
+          color: color,
           border: '3px solid black', 
           margin: '10px',
           padding: '15px',
