@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectHomepages } from '../../store/home/selector';
 import Homepage from '../../components/Homepage';
 
+
 export default function Home() {
   const dispatch = useDispatch();
   const homepages = useSelector(selectHomepages);

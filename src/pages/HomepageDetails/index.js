@@ -5,6 +5,7 @@ import Story from '../../components/Story';
 import {fetchHomepagesById} from '../../store/homeDetails/actions';
 import { selectHomeDetails } from '../../store/homeDetails/selectors';
 import Homepage from '../../components/Homepage';
+import StoryCarousel from '../../components/StoryCarousel';
 
 export default function HomepageDetails() {
   const { id } = useParams();
@@ -23,18 +24,11 @@ export default function HomepageDetails() {
             stories={homepage.stories}
             backgroundColor={homepage.backgroundColor}
             color={homepage.color}
+          />          
+          <StoryCarousel 
             stories={homepage.stories}
           />
-          {homepage.stories.map(story => {
-            return (
-              <Story 
-                name={story.name}
-                content={story.content}
-                imageUrl={story.imageUrl}
-                key={story.id}
-              />
-            )
-          })}
+            
     </div>
   )
 }
