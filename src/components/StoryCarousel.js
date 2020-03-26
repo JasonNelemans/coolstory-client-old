@@ -6,7 +6,7 @@ export default function StoryCarousel(props) {
     <Carousel>
       {props.stories.map(story => {
         return (
-          <Carousel.Item>
+          <Carousel.Item key={story.id}>
             <img
               className="d-block w-100"
               src={story.imageUrl}

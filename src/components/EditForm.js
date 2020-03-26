@@ -38,7 +38,6 @@ export default function EditForm(){
             <Form.Control
               value={title}
               onChange={event => setTitle(event.target.value)}
-              type="input"
               placeholder={homepage.title}
               required
             />

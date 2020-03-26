@@ -39,8 +39,7 @@ export default function MyPage() {
 
   return (
     <div className='myPage'>
-      {form}
-      {editForm}
+      {form} {editForm}
       <Button onClick={clickHandler}>Post a cool story bro</Button>
       <Button onClick={editClickHandler}>Edit my page</Button>
       <Homepage 

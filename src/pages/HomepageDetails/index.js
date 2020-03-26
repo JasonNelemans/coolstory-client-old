@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Story from '../../components/Story';
 import {fetchHomepagesById} from '../../store/homeDetails/actions';
 import { selectHomeDetails } from '../../store/homeDetails/selectors';
 import Homepage from '../../components/Homepage';
