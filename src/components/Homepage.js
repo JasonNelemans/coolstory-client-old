@@ -24,16 +24,6 @@ export default function Homepage(props) {
           <p>{props.description}</p>
           {link}
       </div>
-      {/* {props.stories.map(story => {
-        return (    
-          <Story 
-            name={story.name}
-            content={story.content}
-            imageUrl={story.imageUrl}
-            key={story.id}
-          />
-        )
-      })} */}
     </div>
   )
 }

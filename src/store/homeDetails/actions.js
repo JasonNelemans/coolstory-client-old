@@ -13,7 +13,7 @@ export function homepageIdSucces(data) {
 export function fetchHomepagesById(id) {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/homepage/${id}`);
-    dispatch(homepageIdSucces(response.data))
+    dispatch(homepageIdSucces(...response.data))
   }
 }
 
