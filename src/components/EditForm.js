@@ -21,7 +21,7 @@ export default function EditForm(){
     setDescription(homepage.description);
     setColor(homepage.color);
     setBackgroundColor(homepage.backgroundColor);
-  }, [homepage.color])
+  }, [homepage.color, homepage.title, homepage.description, homepage.backgroundColor])
  
   const submitHandler = (event) => {
     event.preventDefault();

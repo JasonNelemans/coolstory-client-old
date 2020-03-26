@@ -1,17 +1,25 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from '../../components/Form';
 import EditForm from '../../components/EditForm';
-import { selectUserHomepage, selectUserStories } from '../../store/user/selectors';
+import { selectUser } from '../../store/user/selectors';
 import StoryCarousel from '../../components/StoryCarousel';
 import Homepage from '../../components/Homepage';
 
 export default function MyPage() {
-  const homepage = useSelector(selectUserHomepage);
-  const stories = useSelector(selectUserStories);
+  const history = useHistory();
+  const {homepage, stories, token} = useSelector(selectUser);
   const [display, setDisplay] = useState('none');
   const [editDisplay, setEditDisplay] = useState('none');
+
+  useEffect(() => {
+    if(token === null) {
+      history.push('/');
+    }
+  }, [token, history])
+
 
   if(!homepage || !stories) {
     return <h1>Loading...</h1>
